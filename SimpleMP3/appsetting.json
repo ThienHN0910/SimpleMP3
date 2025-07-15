@@ -1,0 +1,12 @@
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source=DESKTOP-I7B2RMJ;Initial Catalog=MusicPlayerDB;Persist Security Info=True;User ID=sa;Password=admin;Encrypt=True;Trust Server Certificate=True"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.EntityFrameworkCore.Database.Command": "Warning",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  }
+}

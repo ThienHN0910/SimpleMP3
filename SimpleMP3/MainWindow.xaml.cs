@@ -1,23 +1,36 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
+﻿using System.Windows;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using SimpleMP3.Models;
+using SimpleMP3.Views;
 
-namespace SimpleMP3;
-
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
-public partial class MainWindow : Window
+namespace SimpleMP3
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
+        public static User? CurrentUser { get; set; }
+
+        public MainWindow()
+        {
+            InitializeComponent();
+            Loaded += MainWindow_Loaded;
+            MainFrame.Navigated += MainFrame_Navigated;
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (App.CurrentUser == null)
+                MainFrame.Navigate(new LoginPage());
+            else
+                MainFrame.Navigate(new HomePage(MainFrame));
+        }
+
+        private void MainFrame_Navigated(object? sender, NavigationEventArgs e)
+        {
+            // Ẩn player bar nếu là LoginPage hoặc RegisterPage
+            if (MainFrame.Content is LoginPage || MainFrame.Content is RegisterPage)
+                GlobalPlayerBar.Visibility = Visibility.Collapsed;
+            else
+                GlobalPlayerBar.Visibility = Visibility.Visible;
+        }
     }
 }
