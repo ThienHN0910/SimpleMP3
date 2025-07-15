@@ -3,63 +3,71 @@
   "WorkspaceRootPath": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+      "AbsoluteMoniker": "D:0:0:{27F594FF-19C3-4B2A-96BC-56A96B4A7104}|..\\Repos\\Repos.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\repos\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{27F594FF-19C3-4B2A-96BC-56A96B4A7104}|..\\Repos\\Repos.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\repos\\repos\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\homepage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{77F41327-EE31-4716-9262-A97F1390816D}|..\\BusinessLogic\\BusinessLogic.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\businesslogic\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\homepage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\services\\musicplayerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:services\\musicplayerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\controls\\musicplayercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\controls\\musicplayercontrol.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\controls\\musicplayercontrol.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\controls\\musicplayercontrol.xaml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\playlistdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\playlistdetailpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\selecttrackwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\selecttrackwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\playlistdetailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\playlistdetailpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\playlistpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\playlistpage.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|d:\\workspace\\project\\wpfproject\\simplemp3\\simplemp3\\views\\playlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{6B8882D1-3C78-DCE8-EABE-5D5DC5BE9831}|SimpleMP3.csproj|solutionrelative:views\\playlistpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "DockedHeight": 200,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\Repos\\Interfaces\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "..\\Repos\\Interfaces\\IUserRepository.cs",
+              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\Repos\\Interfaces\\IUserRepository.cs",
+              "RelativeToolTip": "..\\Repos\\Interfaces\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T13:52:53.268Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\Repos\\Repos\\UserRepository.cs",
+              "RelativeDocumentMoniker": "..\\Repos\\Repos\\UserRepository.cs",
+              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\Repos\\Repos\\UserRepository.cs",
+              "RelativeToolTip": "..\\Repos\\Repos\\UserRepository.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAA3wCYAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T13:38:04.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\BusinessLogic\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "..\\BusinessLogic\\Services\\UserService.cs",
+              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\BusinessLogic\\Services\\UserService.cs",
+              "RelativeToolTip": "..\\BusinessLogic\\Services\\UserService.cs",
+              "ViewState": "AgIAABQAAAAAAAAAAAAcwCgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-15T13:34:47.545Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 2,
@@ -68,145 +76,22 @@
               "RelativeDocumentMoniker": "Views\\HomePage.xaml.cs",
               "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\HomePage.xaml.cs",
               "RelativeToolTip": "Views\\HomePage.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAQwJEAAABHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T04:27:13.199Z",
+              "WhenOpened": "2025-07-15T11:41:10.557Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "HomePage.xaml",
               "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\HomePage.xaml",
               "RelativeDocumentMoniker": "Views\\HomePage.xaml",
               "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\HomePage.xaml",
               "RelativeToolTip": "Views\\HomePage.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-15T04:22:27.111Z",
+              "WhenOpened": "2025-07-15T12:39:08.113Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MusicPlayerService.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Services\\MusicPlayerService.cs",
-              "RelativeDocumentMoniker": "Services\\MusicPlayerService.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Services\\MusicPlayerService.cs",
-              "RelativeToolTip": "Services\\MusicPlayerService.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAA1wAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T04:17:59.871Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "MainWindow.xaml",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\MainWindow.xaml*",
-              "RelativeToolTip": "MainWindow.xaml*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-15T04:05:16.771Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.xaml.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\MainWindow.xaml.cs",
-              "RelativeToolTip": "MainWindow.xaml.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAASwBcAAAA8AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T04:04:55.751Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MusicPlayerControl.xaml.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\Controls\\MusicPlayerControl.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\Controls\\MusicPlayerControl.xaml.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\Controls\\MusicPlayerControl.xaml.cs",
-              "RelativeToolTip": "Views\\Controls\\MusicPlayerControl.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEkAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T04:02:12.296Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MusicPlayerControl.xaml",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\Controls\\MusicPlayerControl.xaml",
-              "RelativeDocumentMoniker": "Views\\Controls\\MusicPlayerControl.xaml",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\Controls\\MusicPlayerControl.xaml",
-              "RelativeToolTip": "Views\\Controls\\MusicPlayerControl.xaml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAAOAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-15T04:02:06.463Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SelectTrackWindow.xaml.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\SelectTrackWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\SelectTrackWindow.xaml.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\SelectTrackWindow.xaml.cs",
-              "RelativeToolTip": "Views\\SelectTrackWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T03:53:24.944Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlaylistDetailPage.xaml",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistDetailPage.xaml",
-              "RelativeDocumentMoniker": "Views\\PlaylistDetailPage.xaml",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistDetailPage.xaml",
-              "RelativeToolTip": "Views\\PlaylistDetailPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-15T03:49:05.193Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "PlaylistDetailPage.xaml.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistDetailPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\PlaylistDetailPage.xaml.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistDetailPage.xaml.cs",
-              "RelativeToolTip": "Views\\PlaylistDetailPage.xaml.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAcwFIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T03:42:16.037Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "PlaylistPage.xaml",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistPage.xaml",
-              "RelativeDocumentMoniker": "Views\\PlaylistPage.xaml",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistPage.xaml",
-              "RelativeToolTip": "Views\\PlaylistPage.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-07-15T03:36:55.635Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PlaylistPage.xaml.cs",
-              "DocumentMoniker": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistPage.xaml.cs",
-              "RelativeDocumentMoniker": "Views\\PlaylistPage.xaml.cs",
-              "ToolTip": "D:\\WorkSpace\\project\\WPFProject\\SimpleMP3\\SimpleMP3\\Views\\PlaylistPage.xaml.cs",
-              "RelativeToolTip": "Views\\PlaylistPage.xaml.cs",
-              "ViewState": "AgIAAEMAAAAAAAAAAAAuwEsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-15T03:36:04.281Z"
             }
           ]
         }

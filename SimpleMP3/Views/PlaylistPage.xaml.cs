@@ -1,6 +1,7 @@
 ﻿using BusinessLogic.Services;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleMP3.Models;
+using SimpleMP3.Services;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -13,19 +14,39 @@ namespace SimpleMP3.Views
     public partial class PlaylistPage : Page
     {
         private readonly PlaylistService _playlistService;
+        private readonly MusicPlayerService _player;
         private List<Playlist> _playlists = new();
 
         public PlaylistPage()
         {
             InitializeComponent();
             _playlistService = App.AppHost.Services.GetRequiredService<PlaylistService>();
+            _player = App.AppHost.Services.GetRequiredService<MusicPlayerService>();
             Loaded += PlaylistPage_Loaded;
         }
 
         private async void PlaylistPage_Loaded(object sender, RoutedEventArgs e)
         {
-            await ReloadPlaylistsAsync();
+            if (App.CurrentUser == null)
+            {
+                GuestNoticePanel.Visibility = Visibility.Visible;
+                PlaylistStackPanel.Visibility = Visibility.Collapsed;
+                GuestPanel.Visibility = Visibility.Visible;
+                UserPanel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                GuestNoticePanel.Visibility = Visibility.Collapsed;
+                PlaylistStackPanel.Visibility = Visibility.Visible;
+                GuestPanel.Visibility = Visibility.Collapsed;
+                UserPanel.Visibility = Visibility.Visible;
+                UsernameText.Text = App.CurrentUser.Username;
+                await ReloadPlaylistsAsync();
+            }
         }
+
+
+
 
         private async System.Threading.Tasks.Task ReloadPlaylistsAsync()
         {
@@ -84,6 +105,63 @@ namespace SimpleMP3.Views
                 }
 
                 border.Child = stack;
+                var contextMenu = new ContextMenu();
+
+                var playItem = new MenuItem { Header = "Phát playlist" };
+                playItem.Click += (s, e) =>
+                {
+                    _player.PlayPlaylist(playlist.Tracks.ToList());
+                };
+
+                var renameItem = new MenuItem { Header = "Đổi tên" };
+                renameItem.Click += async (s, e) =>
+                {
+                    try
+                    {
+                        var result = await _playlistService.RenamePlaylistAsync(playlist.Id, playlist.Name);
+                        if (result)
+                        {
+                            MessageBox.Show("Đổi tên thành công!");
+                            RenderPlaylistCards();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Đổi tên thất bại.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi: {ex.Message}");
+                    }
+                };
+
+                var deleteItem = new MenuItem { Header = "Xóa" };
+                deleteItem.Click += async (s, e) =>
+                {
+                    try
+                    {
+                        var result = await _playlistService.DeletePlaylistAsync(playlist.Id);
+                        if (result)
+                        {
+                            _playlists.Remove(playlist);
+                            RenderPlaylistCards(); // Gọi trực tiếp vì đang trong UI thread
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa playlist thất bại.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Lỗi: {ex.Message}");
+                    }
+                };
+
+                contextMenu.Items.Add(playItem);
+                contextMenu.Items.Add(renameItem);
+                contextMenu.Items.Add(deleteItem);
+
+                border.ContextMenu = contextMenu;
                 border.MouseLeftButtonUp += PlaylistCard_Click;
                 PlaylistWrapPanel.Children.Add(border);
             }
@@ -123,23 +201,39 @@ namespace SimpleMP3.Views
             }
         }
 
-        private void HomeButton_Click(object sender, RoutedEventArgs e)
+        private void Home_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.MainFrame.Navigate(new HomePage(mainWindow.MainFrame));
-            }
+            mainWindow?.MainFrame.Navigate(new HomePage(mainWindow.MainFrame));
         }
 
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        private void Playlist_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new PlaylistPage());
+        }
+
+        private void History_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new HistoryPage());
+        }
+        private void Logout_Click(object sender, RoutedEventArgs e)
         {
             App.CurrentUser = null;
             var mainWindow = Application.Current.MainWindow as MainWindow;
-            if (mainWindow != null)
-            {
-                mainWindow.MainFrame.Navigate(new LoginPage());
-            }
+            mainWindow?.MainFrame.Navigate(new LoginPage());
+        }
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new LoginPage());
+        }
+
+        private void Register_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new RegisterPage());
         }
     }
 }

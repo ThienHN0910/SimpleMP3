@@ -1,31 +1,45 @@
 <UserControl x:Class="SimpleMP3.Views.Controls.MusicPlayerControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Height="80" Background="#181818">
+             Height="80" Background="#181818"
+             Padding="12,0">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="320"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Content="⏮" Width="36" Height="36" Margin="4,0" Click="Prev_Click"
-                    Background="Transparent" Foreground="White" BorderThickness="0" FontSize="18"/>
-            <Button x:Name="PlayPauseButton" Width="36" Height="36" Margin="4,0"
-                    Click="PlayPause_Click"
-                    Background="#1DB954" Foreground="White" BorderThickness="0" FontSize="18">
-                <Button.Content>
-                    <TextBlock x:Name="PlayPauseIcon" Text="▶"/>
-                </Button.Content>
-            </Button>
-            <Button Content="⏹" Width="36" Height="36" Margin="4,0" Click="Stop_Click"
-                    Background="Transparent" Foreground="White" BorderThickness="0" FontSize="18"/>
+
+        <!-- Left: Track Info -->
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Column="0">
+            <StackPanel>
+                <TextBlock x:Name="TrackTitleText" Text="Tên bài hát" FontWeight="Bold" Foreground="White" FontSize="14"/>
+                <TextBlock x:Name="ArtistText" Text="Tên nghệ sĩ" Foreground="#B3B3B3" FontSize="12"/>
+            </StackPanel>
         </StackPanel>
-        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,24,0">
-            <Slider x:Name="ProgressSlider" Width="200" Height="24" Minimum="0" Maximum="100"
+
+        <!-- Center: Playback Controls -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1">
+            <Button Content="⏮" Width="32" Height="32" Click="Prev_Click"
+                    Background="Transparent" Foreground="White" BorderThickness="0" FontSize="16"/>
+            <Button x:Name="PlayPauseButton" Width="40" Height="40" Margin="12,0"
+                    Click="PlayPause_Click"
+                    Background="#1DB954" Foreground="White" BorderThickness="0" FontSize="18" Padding="0">
+                <TextBlock x:Name="PlayPauseIcon" Text="▶"/>
+            </Button>
+            <Button Content="⏹" Width="32" Height="32" Click="Stop_Click"
+                    Background="Transparent" Foreground="White" BorderThickness="0" FontSize="16"/>
+        </StackPanel>
+
+        <!-- Right: Progress + Time -->
+        <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right" >
+            <TextBlock x:Name="CurrentTimeText" Text="0:00" Foreground="White" FontSize="12" Margin="0,0,6,0"/>
+            <Slider x:Name="ProgressSlider" Width="160" Height="20" Minimum="0" Maximum="100"
                     Background="#404040" Foreground="#1DB954"
                     PreviewMouseDown="ProgressSlider_PreviewMouseDown"
                     PreviewMouseUp="ProgressSlider_PreviewMouseUp"
                     ValueChanged="ProgressSlider_ValueChanged"/>
+            <TextBlock x:Name="DurationText" Text="3:45" Foreground="White" FontSize="12" Margin="6,0,0,0"/>
         </StackPanel>
     </Grid>
 </UserControl>

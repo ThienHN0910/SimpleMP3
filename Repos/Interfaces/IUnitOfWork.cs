@@ -11,7 +11,7 @@ namespace Repos.Interfaces
         ITrackRepository Tracks { get; }
         IUserRepository Users { get; }
         IPlaylistRepository Playlists { get; }
-
+        IPlayHistoryRepository PlayHistories { get; }
         Task<int> SaveChangesAsync();
     }
 }

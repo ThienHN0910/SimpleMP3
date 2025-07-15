@@ -12,31 +12,59 @@
         <!-- Sidebar Navigation -->
         <StackPanel Grid.Column="0" Background="#121212" VerticalAlignment="Stretch">
             <TextBlock Text="SimpleMP3" Foreground="#1DB954" FontWeight="Bold" FontSize="22" Margin="20,30,0,40"/>
+
             <Button Content="Trang chủ" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"
-                    Click="HomeButton_Click"/>
-            <Button Content="Playlist" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                    Foreground="#1DB954" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
-            <Button Content="Đăng xuất" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-                    Foreground="#B3B3B3" Background="Transparent" FontSize="14" Margin="20,0,0,10" BorderThickness="0"
-                    Click="LogoutButton_Click"/>
+    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
+            <Button Content="Playlist" Click="Playlist_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
+            <Button Content="Lịch sử phát" Click="History_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
+            <!-- Chưa đăng nhập -->
+            <StackPanel x:Name="GuestPanel" Margin="20,30,0,0">
+                <Button Content="Đăng nhập" Click="Login_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        Foreground="White" Background="Transparent" FontSize="16" BorderThickness="0" />
+                <Button Content="Đăng ký" Click="Register_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        Foreground="White" Background="Transparent" FontSize="16" Margin="0,10,0,0" BorderThickness="0" />
+            </StackPanel>
+
+            <!-- Đã đăng nhập -->
+            <StackPanel x:Name="UserPanel" Visibility="Collapsed" Margin="20,30,0,0">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <TextBlock Text="👤" FontSize="16" Margin="0,0,8,0"/>
+                    <TextBlock x:Name="UsernameText" Text="User" FontSize="16" Foreground="White"/>
+                </StackPanel>
+                <Button Content="Đăng xuất" Click="Logout_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        Foreground="#B3B3B3" Background="Transparent" FontSize="14" Margin="0,10,0,0" BorderThickness="0"/>
+            </StackPanel>
         </StackPanel>
 
         <!-- Main Content -->
         <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="32,32,32,0">
-                <TextBlock Text="Playlist của bạn" FontSize="22" FontWeight="Bold" Foreground="White" Margin="0,0,0,24"/>
-                <WrapPanel x:Name="PlaylistWrapPanel">
-                    <!-- Các thẻ playlist sẽ được sinh động trong code-behind -->
-                </WrapPanel>
-                <!-- Nút thêm playlist -->
-                <Button x:Name="AddPlaylistButton" Width="200" Height="120" Margin="12,24,0,0" Background="#181818" BorderThickness="0"
-                        HorizontalAlignment="Left" VerticalAlignment="Top" Click="AddPlaylistButton_Click" Cursor="Hand">
-                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <TextBlock Text="+" FontSize="48" Foreground="#1DB954" HorizontalAlignment="Center"/>
-                        <TextBlock Text="Thêm playlist" FontSize="14" Foreground="#B3B3B3" HorizontalAlignment="Center"/>
-                    </StackPanel>
-                </Button>
+
+                <!-- Nếu chưa đăng nhập -->
+                <StackPanel x:Name="GuestNoticePanel" Visibility="Collapsed" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="🎧 Vui lòng đăng nhập để xem và tạo playlist." 
+                       Foreground="White" FontSize="18" FontWeight="Bold" 
+                       TextAlignment="Center" Margin="0,100,0,0"/>
+                </StackPanel>
+
+                <!-- Nếu đã đăng nhập -->
+                <StackPanel x:Name="PlaylistStackPanel" Visibility="Collapsed">
+                    <TextBlock Text="Playlist của bạn" FontSize="22" FontWeight="Bold" Foreground="White" Margin="0,0,0,24"/>
+                    <WrapPanel x:Name="PlaylistWrapPanel" />
+                    <Button x:Name="AddPlaylistButton" Width="200" Height="120" Margin="12,24,0,0" Background="#181818" BorderThickness="0"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" Click="AddPlaylistButton_Click" Cursor="Hand">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <TextBlock Text="+" FontSize="48" Foreground="#1DB954" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Thêm playlist" FontSize="14" Foreground="#B3B3B3" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+
             </StackPanel>
         </ScrollViewer>
 

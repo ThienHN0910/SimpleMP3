@@ -5,8 +5,17 @@
         Title="SimpleMP3 Player" Height="600" Width="900"
         WindowStartupLocation="CenterScreen"
         Background="#1E1E1E" FontFamily="Segoe UI" Foreground="White">
-    <DockPanel LastChildFill="True">
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" DockPanel.Dock="Top"/>
-        <views:MusicPlayerControl x:Name="GlobalPlayerBar" DockPanel.Dock="Bottom" Visibility="Visible"/>
-    </DockPanel>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <!-- Main content -->
+            <RowDefinition Height="80" />
+            <!-- Player bar -->
+        </Grid.RowDefinitions>
+
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="0"/>
+
+        <views:MusicPlayerControl x:Name="GlobalPlayerBar" Grid.Row="1" />
+    </Grid>
 </Window>

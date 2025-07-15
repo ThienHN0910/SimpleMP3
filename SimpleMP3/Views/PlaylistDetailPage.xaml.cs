@@ -101,8 +101,7 @@ namespace SimpleMP3.Views
             if (!string.IsNullOrWhiteSpace(input) && _playlist != null && input != _playlist.Name)
             {
                 _playlist.Name = input;
-                // Lưu thay đổi tên playlist
-                await _playlistService.CreatePlaylistAsync(_playlist.UserId, input); // Bạn nên có hàm UpdatePlaylistNameAsync, đây chỉ là ví dụ
+                await _playlistService.RenamePlaylistAsync(_playlist.UserId, input); 
                 PlaylistNameText.Text = input;
                 MessageBox.Show("Đã đổi tên playlist.");
             }

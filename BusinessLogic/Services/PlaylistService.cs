@@ -70,5 +70,16 @@ namespace BusinessLogic.Services
             await _unitOfWork.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> RenamePlaylistAsync(int playlistId, string newName)
+        {
+            var playlist = await _unitOfWork.Playlists.GetByIdAsync(playlistId);
+            string oldName = playlist?.Name ?? string.Empty;
+            if (playlist == null || string.IsNullOrWhiteSpace(newName) || newName == oldName)
+                return false;
+            playlist.Name = newName;
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
     }
 }

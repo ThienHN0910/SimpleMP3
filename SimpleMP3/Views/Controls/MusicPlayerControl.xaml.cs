@@ -1,5 +1,7 @@
-﻿using SimpleMP3.Models;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SimpleMP3.Models;
 using SimpleMP3.Services;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,49 +11,78 @@ namespace SimpleMP3.Views.Controls
     public partial class MusicPlayerControl : UserControl
     {
         private bool _isDraggingSlider = false;
+        private MusicPlayerService? _player;
+
         public MusicPlayerControl()
         {
             InitializeComponent();
-            MusicPlayerService.Instance.OnTrackChanged += UpdateUI;
-            MusicPlayerService.Instance.OnProgressChanged += UpdateProgress;
+            Loaded += MusicPlayerControl_Loaded;
+        }
+        private void MusicPlayerControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            _player = App.AppHost.Services.GetRequiredService<MusicPlayerService>();
+
+            _player.OnTrackChanged += UpdateUI;
+            _player.OnProgressChanged += UpdateProgress;
             UpdateUI();
         }
-
         private void UpdateUI()
         {
-            var player = MusicPlayerService.Instance;
-            PlayPauseIcon.Text = player.IsPlaying ? "⏸" : "▶";
-            ProgressSlider.Maximum = player.Duration;
-            ProgressSlider.Value = player.Progress;
+            var track = _player.CurrentTrack;
+
+            // Cập nhật tên bài hát và nghệ sĩ
+            TrackTitleText.Text = track?.Title ?? "Chưa có bài hát";
+            ArtistText.Text = track?.Artist?.Name ?? "Không rõ nghệ sĩ";
+
+            // Cập nhật nút play/pause
+            PlayPauseIcon.Text = _player.IsPlaying ? "⏸" : "▶";
+
+            // Cập nhật thời gian và slider
+            ProgressSlider.Maximum = _player.Duration;
+            ProgressSlider.Value = _player.Progress;
+
+            CurrentTimeText.Text = FormatTime(_player.Progress);
+            DurationText.Text = FormatTime(_player.Duration);
         }
 
         private void UpdateProgress()
         {
-            if (!_isDraggingSlider)
-            {
-                var player = MusicPlayerService.Instance;
-                ProgressSlider.Maximum = player.Duration;
-                ProgressSlider.Value = player.Progress;
-            }
+            if (_isDraggingSlider) return;
+
+
+            ProgressSlider.Maximum = _player.Duration;
+            ProgressSlider.Value = _player.Progress;
+
+            CurrentTimeText.Text = FormatTime(_player.Progress);
+            DurationText.Text = FormatTime(_player.Duration);
+        }
+
+        private string FormatTime(double seconds)
+        {
+            var ts = TimeSpan.FromSeconds(seconds);
+            return $"{ts.Minutes}:{ts.Seconds:D2}";
         }
 
         private void PlayPause_Click(object sender, RoutedEventArgs e)
         {
-            var player = MusicPlayerService.Instance;
-            if (player.IsPlaying)
-                player.Pause();
+            if (_player.IsPlaying)
+                _player.Pause();
             else
-                player.PlayOrResume();
+                _player.PlayOrResume();
+
+            UpdateUI();
         }
 
         private void Stop_Click(object sender, RoutedEventArgs e)
         {
-            MusicPlayerService.Instance.Stop();
+            _player.Stop();
+            UpdateUI();
         }
 
         private void Prev_Click(object sender, RoutedEventArgs e)
         {
-            // Optional: Implement previous track logic
+            // TODO: Nếu đang phát playlist thì chuyển bài trước đó
+            MessageBox.Show("Tính năng phát bài trước chưa được triển khai.");
         }
 
         private void ProgressSlider_PreviewMouseDown(object sender, MouseButtonEventArgs e)
@@ -61,14 +92,16 @@ namespace SimpleMP3.Views.Controls
 
         private void ProgressSlider_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            var player = MusicPlayerService.Instance;
-            player.Seek(ProgressSlider.Value);
+            _player.Seek(ProgressSlider.Value);
             _isDraggingSlider = false;
         }
 
         private void ProgressSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            // Không làm gì, chỉ update khi thả chuột
+            if (_isDraggingSlider)
+            {
+                CurrentTimeText.Text = FormatTime(ProgressSlider.Value);
+            }
         }
     }
 }

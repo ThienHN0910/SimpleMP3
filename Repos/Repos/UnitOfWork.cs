@@ -15,17 +15,20 @@ namespace Repos.Repos
         public ITrackRepository Tracks { get; }
         public IUserRepository Users { get; }
         public IPlaylistRepository Playlists { get; }
+        public IPlayHistoryRepository PlayHistories { get; }
 
         public UnitOfWork(
             MusicPlayerDbContext context,
             ITrackRepository trackRepo,
             IUserRepository userRepo,
-            IPlaylistRepository playlistRepo)
+            IPlaylistRepository playlistRepo,
+            IPlayHistoryRepository playHistory)
         {
             _context = context;
             Tracks = trackRepo;
             Users = userRepo;
             Playlists = playlistRepo;
+            PlayHistories = playHistory;
         }
 
         public async Task<int> SaveChangesAsync()

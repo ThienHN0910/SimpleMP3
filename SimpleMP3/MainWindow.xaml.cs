@@ -18,15 +18,11 @@ namespace SimpleMP3
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            if (App.CurrentUser == null)
-                MainFrame.Navigate(new LoginPage());
-            else
                 MainFrame.Navigate(new HomePage(MainFrame));
         }
 
         private void MainFrame_Navigated(object? sender, NavigationEventArgs e)
         {
-            // Ẩn player bar nếu là LoginPage hoặc RegisterPage
             if (MainFrame.Content is LoginPage || MainFrame.Content is RegisterPage)
                 GlobalPlayerBar.Visibility = Visibility.Collapsed;
             else

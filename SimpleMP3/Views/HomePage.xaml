@@ -3,58 +3,106 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       Background="#191414">
     <Grid>
-        <!-- Sidebar -->
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="180"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
+        <Grid>
+            <!-- Sidebar -->
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="180"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-        <!-- Sidebar Navigation -->
-        <StackPanel Grid.Column="0" Background="#121212" VerticalAlignment="Stretch">
-            <TextBlock Text="SimpleMP3" Foreground="#1DB954" FontWeight="Bold" FontSize="22" Margin="20,30,0,40"/>
-            <Button Content="Trang chủ" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
-            <Button Content="Playlist" Click="PlaylistButton_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
-            <Button Content="Đăng xuất" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" 
-                    Foreground="#B3B3B3" Background="Transparent" FontSize="14" Margin="20,0,0,10" BorderThickness="0" Click="Login_Click"/>
-        </StackPanel>
+            <!-- Sidebar Navigation -->
+            <StackPanel Grid.Column="0" Background="#121212" VerticalAlignment="Stretch">
+                <TextBlock Text="SimpleMP3" Foreground="#1DB954" FontWeight="Bold" FontSize="22" Margin="20,30,0,40"/>
 
-        <!-- Main Content -->
-        <Grid Grid.Column="1" Margin="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
-            </Grid.RowDefinitions>
+                <Button Content="Trang chủ" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+            Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
 
-            <!-- Header: Add Song & Search -->
-            <StackPanel Orientation="Horizontal" Margin="32,24,32,16" Grid.Row="0" VerticalAlignment="Center">
-                <TextBox x:Name="YouTubeIdBox" Width="220" Height="36" Margin="0,0,12,0"
-                         Background="#222326" Foreground="White" BorderBrush="#333" BorderThickness="1" Padding="10"
-                         FontSize="15"  VerticalContentAlignment="Center" />
-                <Button Content="Thêm bài hát từ YouTube" Width="160" Height="36" Click="AddTrack_Click"
-                        Background="#1DB954" Foreground="White" FontWeight="Bold" BorderThickness="0" FontSize="15" Margin="0,0,24,0"/>
-                <TextBox x:Name="SearchBox" Width="220" Height="36" Margin="0,0,8,0"
-                         Background="#222326" Foreground="White" BorderBrush="#333" BorderThickness="1" Padding="10"
-                         FontSize="15" VerticalContentAlignment="Center" KeyDown="SearchBox_KeyDown" />
-                <Button Content="Tìm kiếm" Width="100" Height="36" Click="Search_Click"
-                        Background="#404040" Foreground="White" FontWeight="Bold" BorderThickness="0" FontSize="15"/>
+                <Button Content="Playlist" Click="Playlist_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+            Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
+                <Button Content="Lịch sử phát" Click="History_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+            Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
+                <!-- Chưa đăng nhập -->
+                <StackPanel x:Name="GuestPanel" Margin="20,30,0,0">
+                    <Button Content="Đăng nhập" Click="Login_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Foreground="White" Background="Transparent" FontSize="16" BorderThickness="0" />
+                    <Button Content="Đăng ký" Click="Register_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Foreground="White" Background="Transparent" FontSize="16" Margin="0,10,0,0" BorderThickness="0" />
+                </StackPanel>
+
+                <!-- Đã đăng nhập -->
+                <StackPanel x:Name="UserPanel" Visibility="Collapsed" Margin="20,30,0,0">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Cursor="Hand" MouseLeftButtonUp="OpenUserPopup_Click">
+                        <TextBlock Text="👤" FontSize="16" Margin="0,0,8,0"/>
+                        <TextBlock x:Name="UsernameText" Text="User" FontSize="16" Foreground="White"/>
+                    </StackPanel>
+                    <Button Content="Đăng xuất" Click="Logout_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+                Foreground="#B3B3B3" Background="Transparent" FontSize="14" Margin="0,10,0,0" BorderThickness="0"/>
+                </StackPanel>
             </StackPanel>
 
-            <!-- Song List -->
-            <Border Grid.Row="1" Margin="32,0,32,0" Background="#222326" CornerRadius="12">
-                <ListView x:Name="TrackListView" Background="Transparent" Foreground="White"
+            <!-- Main Content -->
+            <Grid Grid.Column="1" Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <!-- Header: Add Song & Search -->
+                <StackPanel Orientation="Horizontal" Margin="32,24,32,16" Grid.Row="0" VerticalAlignment="Center">
+                    <TextBox x:Name="YouTubeIdBox" Width="220" Height="36" Margin="0,0,12,0"
+                         Background="#222326" Foreground="White" BorderBrush="#333" BorderThickness="1" Padding="10"
+                         FontSize="15"  VerticalContentAlignment="Center" />
+                    <Button Content="Thêm bài hát từ YouTube" Width="160" Height="36" Click="AddTrack_Click"
+                        Background="#1DB954" Foreground="White" FontWeight="Bold" BorderThickness="0" FontSize="15" Margin="0,0,24,0"/>
+                    <TextBox x:Name="SearchBox" Width="220" Height="36" Margin="0,0,8,0"
+                         Background="#222326" Foreground="White" BorderBrush="#333" BorderThickness="1" Padding="10"
+                         FontSize="15" VerticalContentAlignment="Center" KeyDown="SearchBox_KeyDown" />
+                    <Button Content="Tìm kiếm" Width="100" Height="36" Click="Search_Click"
+                        Background="#404040" Foreground="White" FontWeight="Bold" BorderThickness="0" FontSize="15"/>
+                </StackPanel>
+
+                <!-- Song List -->
+                <Border Grid.Row="1" Margin="32,0,32,0" Background="#222326" CornerRadius="12">
+                    <ListView x:Name="TrackListView" Background="Transparent" Foreground="White"
                           BorderThickness="0" FontSize="15" SelectionMode="Single">
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Header="Tên bài hát" Width="260" DisplayMemberBinding="{Binding Title}"/>
-                            <GridViewColumn Header="YouTube ID" Width="140" DisplayMemberBinding="{Binding YouTubeId}"/>
-                            <GridViewColumn Header="Album" Width="140" DisplayMemberBinding="{Binding Album}"/>
-                            <GridViewColumn Header="Nghệ sĩ" Width="140" DisplayMemberBinding="{Binding Artist.Name}"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="Tên bài hát" Width="260" DisplayMemberBinding="{Binding Title}"/>
+                                <GridViewColumn Header="YouTube ID" Width="140" DisplayMemberBinding="{Binding YouTubeId}"/>
+                                <GridViewColumn Header="Album" Width="140" DisplayMemberBinding="{Binding Album}"/>
+                                <GridViewColumn Header="Nghệ sĩ" Width="140" DisplayMemberBinding="{Binding Artist.Name}"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid x:Name="UserPopup" Visibility="Collapsed" Background="#80000000" Grid.ColumnSpan="2">
+            <Border Width="360" Background="#23272F" CornerRadius="10" Padding="24"
+            VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="👤 Quản lý tài khoản" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0 0 0 16"/>
+
+                    <Label Content="Tên người dùng" Foreground="#B0B0B0"/>
+                    <TextBox x:Name="NewUsernameBox" Height="32" Margin="0,0,0,12"/>
+
+                    <Label Content="Mật khẩu hiện tại" Foreground="#B0B0B0"/>
+                    <PasswordBox x:Name="OldPasswordBox" Height="32" Margin="0,0,0,12"/>
+
+                    <Label Content="Mật khẩu mới" Foreground="#B0B0B0"/>
+                    <PasswordBox x:Name="NewPasswordBox" Height="32" Margin="0,0,0,12"/>
+
+                    <Label Content="Xác nhận mật khẩu" Foreground="#B0B0B0"/>
+                    <PasswordBox x:Name="ConfirmPasswordBox" Height="32" Margin="0,0,0,16"/>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Hủy" Width="60" Margin="0,0,8,0" Click="CancelUserPopup_Click"/>
+                        <Button Content="Lưu" Width="80" Click="SaveUserInfo_Click"/>
+                    </StackPanel>
+                </StackPanel>
             </Border>
         </Grid>
     </Grid>

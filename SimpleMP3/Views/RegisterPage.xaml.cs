@@ -1,50 +1,18 @@
 ﻿using BusinessLogic.Services;
 using Microsoft.Extensions.DependencyInjection;
-using SimpleMP3.Models;
-using SimpleMP3.Views;
-using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace SimpleMP3.Views
 {
     public partial class RegisterPage : Page
     {
         private readonly AuthService _authService;
-        private TextBlock _passwordHint;
-        private TextBlock _confirmPasswordHint;
 
         public RegisterPage()
         {
             InitializeComponent();
             _authService = App.AppHost.Services.GetRequiredService<AuthService>();
-
-            AddPasswordPlaceholder(PasswordBox, "Mật khẩu", out _passwordHint);
-            AddPasswordPlaceholder(ConfirmPasswordBox, "Xác nhận mật khẩu", out _confirmPasswordHint);
-        }
-
-        private void AddPasswordPlaceholder(PasswordBox box, string text, out TextBlock placeholder)
-        {
-            var parent = box.Parent as Grid;
-            var localPlaceholder = new TextBlock
-            {
-                Text = text,
-                Foreground = Brushes.Gray,
-                Margin = new Thickness(5, 0, 0, 0),
-                VerticalAlignment = VerticalAlignment.Center,
-                IsHitTestVisible = false
-            };
-            parent.Children.Add(localPlaceholder);
-
-            box.PasswordChanged += (s, e) =>
-            {
-                localPlaceholder.Visibility = string.IsNullOrEmpty(box.Password)
-                    ? Visibility.Visible
-                    : Visibility.Collapsed;
-            };
-
-            placeholder = localPlaceholder;
         }
 
         private async void Register_Click(object sender, RoutedEventArgs e)
@@ -54,28 +22,30 @@ namespace SimpleMP3.Views
             string password = PasswordBox.Password;
             string confirmPassword = ConfirmPasswordBox.Password;
 
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(email) ||
-                string.IsNullOrEmpty(password) || string.IsNullOrEmpty(confirmPassword))
+            if (string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(email) ||
+                string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(confirmPassword))
             {
-                MessageBox.Show("Vui lòng điền đầy đủ thông tin.");
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin.", "Thiếu thông tin", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             if (password != confirmPassword)
             {
-                MessageBox.Show("Mật khẩu không khớp.");
+                MessageBox.Show("Mật khẩu xác nhận không khớp.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
             var success = await _authService.RegisterAsync(username, email, password);
             if (success)
             {
-                MessageBox.Show("Đăng ký thành công!");
+                MessageBox.Show("Đăng ký thành công!", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
                 NavigationService?.Navigate(new LoginPage());
             }
             else
             {
-                MessageBox.Show("Tên người dùng hoặc email đã tồn tại.");
+                MessageBox.Show("Tên đăng nhập hoặc email đã tồn tại.", "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

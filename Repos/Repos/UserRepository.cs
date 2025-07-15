@@ -3,9 +3,6 @@ using Repos.Interfaces;
 using SimpleMP3.DataAccess;
 using SimpleMP3.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Repos.Repos
@@ -17,6 +14,11 @@ namespace Repos.Repos
         public UserRepository(MusicPlayerDbContext context)
         {
             _context = context;
+        }
+
+        public async Task<User?> GetByIdAsync(int userId)
+        {
+            return await _context.Users.FirstOrDefaultAsync(u => u.Id == userId);
         }
 
         public async Task<User?> GetByUsernameAsync(string username)
@@ -33,5 +35,12 @@ namespace Repos.Repos
         {
             await _context.Users.AddAsync(user);
         }
+
+        public Task UpdateAsync(User user)
+        {
+            _context.Users.Update(user);
+            return Task.CompletedTask;
+        }
+
     }
 }
