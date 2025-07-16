@@ -14,7 +14,7 @@
             <TextBlock Text="SimpleMP3" Foreground="#1DB954" FontWeight="Bold" FontSize="22" Margin="20,30,0,40"/>
 
             <Button Content="Trang chủ" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
-    Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+    Foreground="White" Background="Transparent" Click="Home_Click" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
 
             <Button Content="Playlist" Click="Playlist_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
     Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
