@@ -46,8 +46,14 @@ namespace BusinessLogic.Services
                 Title = title,
                 FilePath = path,
                 YouTubeId = videoId,
-                CreatedAt = DateTime.Now
+                CreatedAt = DateTime.Now,
+                Artist = new Artist
+                {
+                    Name = "Unknown"
+                }
             };
+
+            await _unitOfWork.Artists.AddAsync(track.Artist);
 
             await _unitOfWork.Tracks.AddAsync(track);
             await _unitOfWork.SaveChangesAsync();

@@ -98,11 +98,16 @@ public partial class MusicPlayerDbContext : DbContext
             entity.Property(e => e.FilePath).HasMaxLength(500);
             entity.Property(e => e.Title).HasMaxLength(255);
             entity.Property(e => e.YouTubeId).HasMaxLength(20);
+            entity.Property(e => e.UserId).IsRequired(false);
 
             entity.HasOne(d => d.Artist).WithMany(p => p.Tracks)
                 .HasForeignKey(d => d.ArtistId)
                 .OnDelete(DeleteBehavior.SetNull)
                 .HasConstraintName("FK__Tracks__ArtistId__2D27B809");
+            entity.HasOne(d => d.User).WithMany(p => p.Tracks)
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("FK__Tracks__UserId__2E1BDC42");
         });
 
         modelBuilder.Entity<User>(entity =>

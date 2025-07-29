@@ -21,7 +21,7 @@ namespace Repos.Repos
 
         public async Task<List<Track>> GetAllAsync()
         {
-            return await _context.Tracks.Include(t => t.Artist).ToListAsync();
+            return await _context.Tracks.Include(t => t.Artist).Include(n => n.UserId).ToListAsync();
         }
 
         public async Task<Track?> GetByIdAsync(int id)
@@ -38,6 +38,13 @@ namespace Repos.Repos
         public async Task AddAsync(Track track)
         {
             await _context.Tracks.AddAsync(track);
+        }
+        public async Task<List<Track>> GetByUserIdAsync(int userId)
+        {
+            return await _context.Tracks
+                                 .Where(t => t.UserId == userId)
+                                 .Include(t => t.Artist)
+                                 .ToListAsync();
         }
 
         public void Remove(Track track)

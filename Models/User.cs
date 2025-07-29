@@ -18,4 +18,6 @@ public partial class User
     public virtual ICollection<PlayHistory> PlayHistories { get; set; } = new List<PlayHistory>();
 
     public virtual ICollection<Playlist> Playlists { get; set; } = new List<Playlist>();
+
+    public virtual ICollection<Track> Tracks { get; set; } = new List<Track>();
 }

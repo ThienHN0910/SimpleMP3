@@ -76,6 +76,7 @@
                                 <GridViewColumn Header="Tên bài hát" Width="260" DisplayMemberBinding="{Binding Title}"/>
                                 <GridViewColumn Header="YouTube ID" Width="140" DisplayMemberBinding="{Binding YouTubeId}"/>
                                 <GridViewColumn Header="Album" Width="140" DisplayMemberBinding="{Binding Album}"/>
+                                <GridViewColumn Header="Singer" Width="140" DisplayMemberBinding="{Binding User.Username}"/>
                                 <GridViewColumn Header="Nghệ sĩ" Width="140" DisplayMemberBinding="{Binding Artist.Name}"/>
                             </GridView>
                         </ListView.View>
