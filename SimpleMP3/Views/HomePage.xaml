@@ -20,6 +20,9 @@
                 <Button Content="Playlist" Click="Playlist_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
             Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
 
+                <Button Content="Gợi ý cho bạn" Click="Recommend_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+        Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
+
                 <Button Content="Lịch sử phát" Click="History_Click" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
             Foreground="White" Background="Transparent" FontSize="16" Margin="20,0,0,10" BorderThickness="0"/>
 

@@ -52,3 +52,45 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# WPF specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.vssscc
+*.vspscc
+*.pidb
+*.sdf
+*.cache
+*.dbmdl
+*.psess
+*.vsp
+*.vspx
+*.vsmdi
+
+# Visual Studio Designer & XAML generated files
+Generated_Code/
+*.g.i.cs
+*.g.cs
+*.i.cs
+*.xaml.cs
+
+# VS Code settings
+.vscode/
+
+#Visual Studio Code workspace storage
+.vscode-test/
+.vs/
+
+# Local history & test logs
+.localhistory/
+*.log
+*.tlog
+
+# JetBrains Rider or ReSharper
+.idea/
+*.DotSettings.user
+_ReSharper*/
+*.resharper
+*.sln.iml

@@ -239,6 +239,12 @@ namespace SimpleMP3.Views
             mainWindow?.MainFrame.Navigate(new HistoryPage());
         }
 
+        private void Recommend_Click(object sender, RoutedEventArgs e)
+        {
+            var mainWindow = Application.Current.MainWindow as MainWindow;
+            mainWindow?.MainFrame.Navigate(new RecommendationPage());
+        }
+
         private void Playlist_Click(object sender, RoutedEventArgs e)
         {
             var mainWindow = Application.Current.MainWindow as MainWindow;

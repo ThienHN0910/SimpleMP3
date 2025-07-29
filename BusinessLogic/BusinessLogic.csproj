@@ -11,4 +11,8 @@
     <ProjectReference Include="..\Repos\Repos.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ML.Recommender" Version="0.22.2" />
+  </ItemGroup>
+
 </Project>

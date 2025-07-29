@@ -41,12 +41,14 @@ public partial class App : Application
                 services.AddScoped<IUserRepository, UserRepository>();
                 services.AddScoped<IPlaylistRepository, PlaylistRepository>();
                 services.AddScoped<IPlayHistoryRepository, PlayHistoryRepository>();
+                services.AddScoped<ITrainingRepo, TrainingRepo>();
                 services.AddScoped<IUnitOfWork, UnitOfWork>();
                 services.AddScoped<AuthService>();
                 services.AddScoped<TrackService>();
                 services.AddScoped<PlaylistService>();
                 services.AddScoped<PlayHistoryService>();
                 services.AddScoped<UserService>();
+                services.AddScoped<RecommendationService>();
                 services.AddSingleton<MusicPlayerService>();
                 // thêm các service khác
             })
