@@ -55,8 +55,10 @@ nunit-*.xml
 
 .vs/
 
-appsetting.json
-
+*.json
+*csproj
+*csproj.user
+*.sln
 # WPF specific
 *.user
 *.suo
